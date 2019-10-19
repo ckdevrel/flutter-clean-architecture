@@ -1,0 +1,1 @@
+class APIException implements Exception {}
