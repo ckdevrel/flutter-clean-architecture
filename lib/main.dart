@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'features/feed/presentation/screens/feeds_screen.dart';
+import 'injection_container.dart' as di;
 
 void main() async {
+  await di.init();
   runApp(MyApp());
 }
 

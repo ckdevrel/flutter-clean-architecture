@@ -8,9 +8,11 @@ import 'package:flutter_clean_architecture/core/persistence/key_value_store_impl
 import 'package:flutter_clean_architecture/features/feed/data/datasources/feed_local_data_source_impl.dart';
 import 'package:flutter_clean_architecture/features/feed/data/datasources/feed_remote_data_source_impl.dart';
 import 'package:flutter_clean_architecture/features/feed/data/repositories/feeds_repository_impl.dart';
+import 'package:flutter_clean_architecture/features/feed/domain/repositories/feeds_repository.dart';
 import 'package:flutter_clean_architecture/features/feed/presentation/bloc/feeds_bloc.dart';
 import 'package:flutter_clean_architecture/features/feed/presentation/bloc/feeds_state.dart';
 import 'package:flutter_clean_architecture/features/feed/presentation/widgets/feed_list.dart';
+import 'package:flutter_clean_architecture/injection_container.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -26,18 +28,11 @@ class _FeedsScreenState extends State<FeedsScreen> {
   @override
   void initState() {
     super.initState();
-    SharedPreferences.getInstance().then((sharedPreferences) {
-      bloc = FeedsBloc(repository: FeedsRepositoryImpl(remoteDataSource: FeedRemoteDataSourceImpl(httpClient: HttpClientImpl(client: http.Client())), localDataSource: FeedLocalDataSourceImpl(keyValueStore: KeyValueStoreImpl(sharedPreferences: sharedPreferences)), networkInfo: NetworkInfoImpl(DataConnectionChecker())));
-      setState(() {
-      });
-    });
+    bloc = FeedsBloc(repository: sl<FeedsRepository>());
   }
 
   @override
   Widget build(BuildContext context) {
-    if (bloc == null) {
-      return Scaffold(body: CircularProgressIndicator());
-    }
     bloc.add(NoParams());
     return Scaffold(
       body: BlocBuilder<FeedsBloc, FeedsState>(
