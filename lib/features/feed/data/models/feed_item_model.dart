@@ -4,6 +4,12 @@ import 'package:flutter_clean_architecture/features/feed/domain/entities/feed_it
 List<FeedItemModel> feedFromJson(List<dynamic> jsonItem) =>
     List<FeedItemModel>.from(jsonItem.map((x) => FeedItemModel.fromJson(x)));
 
+List feedToJson(List<FeedItemModel> feed) {
+  List jsonItems = List();
+  feed.map((item) => jsonItems.add(item.toJson())).toList();
+  return jsonItems;
+}
+
 class FeedItemModel extends FeedItem {
   FeedItemModel(
       {@required int id,
