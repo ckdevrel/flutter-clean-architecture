@@ -14,7 +14,7 @@ class FeedRemoteDataSourceImpl implements FeedRemoteDataSource {
   Future<List<FeedItemModel>> getFeed() async {
     final response = await httpClient
         .get('http://www.mocky.io/v2/5da9ee773100006c184e0c8b', headers: {});
-    if (response.statuCode == 200) {
+    if (response.statusCode == 200) {
       return feedFromJson(json.decode(response.body));
     } else {
       throw APIException();
