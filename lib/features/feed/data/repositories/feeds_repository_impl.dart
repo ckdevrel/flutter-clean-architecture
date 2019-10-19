@@ -5,8 +5,8 @@ import 'package:flutter_clean_architecture/features/feed/data/datasources/feed_r
 import 'package:flutter_clean_architecture/features/feed/domain/entities/feed_item.dart';
 import 'package:flutter_clean_architecture/features/feed/domain/repositories/feeds_repository.dart';
 
-class FeedsRespositoryImpl implements FeedsRepository {
-  FeedsRespositoryImpl({@required this.remoteDataSource});
+class FeedsRepositoryImpl implements FeedsRepository {
+  FeedsRepositoryImpl({@required this.remoteDataSource});
 
   final FeedRemoteDataSource remoteDataSource;
 
