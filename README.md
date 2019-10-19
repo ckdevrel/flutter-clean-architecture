@@ -1,4 +1,6 @@
-# flutter_clean_architecture
+[![Gitter](https://badges.gitter.im/flutter-twgeekday/community.svg)](https://gitter.im/flutter-twgeekday/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
+# Flutter Clean Architecture
 
 A new Flutter project.
 
