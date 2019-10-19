@@ -8,8 +8,8 @@ import 'package:flutter_clean_architecture/features/feed/data/datasources/feed_r
 import 'package:flutter_clean_architecture/features/feed/domain/entities/feed_item.dart';
 import 'package:flutter_clean_architecture/features/feed/domain/repositories/feeds_repository.dart';
 
-class FeedsRespositoryImpl implements FeedsRepository {
-  FeedsRespositoryImpl(
+class FeedsRepositoryImpl implements FeedsRepository {
+  FeedsRepositoryImpl(
       {@required this.remoteDataSource,
       @required this.localDataSource,
       @required this.networkInfo});
@@ -31,7 +31,6 @@ class FeedsRespositoryImpl implements FeedsRepository {
     }
     try {
       final feed = await remoteDataSource.getFeed();
-      localDataSource.saveFeed(feed);
       return Right(feed);
     } on APIException {
       return Left(APIFailure(message: 'Api Error'));
