@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture/features/feed/domain/entities/feed_item.dart';
 
+List<FeedItemModel> feedFromJson(List<dynamic> jsonItem) =>
+    List<FeedItemModel>.from(jsonItem.map((x) => FeedItemModel.fromJson(x)));
+
 class FeedItemModel extends FeedItem {
   FeedItemModel(
       {@required int id,
