@@ -31,6 +31,7 @@ class FeedsRepositoryImpl implements FeedsRepository {
     }
     try {
       final feed = await remoteDataSource.getFeed();
+      localDataSource.saveFeed(feed);
       return Right(feed);
     } on APIException {
       return Left(APIFailure(message: 'Api Error'));

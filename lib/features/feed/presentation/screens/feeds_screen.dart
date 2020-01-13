@@ -1,21 +1,11 @@
-import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_clean_architecture/core/error/no_params.dart';
-import 'package:flutter_clean_architecture/core/http/http_client_impl.dart';
-import 'package:flutter_clean_architecture/core/http/network_info_impl.dart';
-import 'package:flutter_clean_architecture/core/persistence/key_value_store_impl.dart';
-import 'package:flutter_clean_architecture/features/feed/data/datasources/feed_local_data_source_impl.dart';
-import 'package:flutter_clean_architecture/features/feed/data/datasources/feed_remote_data_source_impl.dart';
-import 'package:flutter_clean_architecture/features/feed/data/repositories/feeds_repository_impl.dart';
 import 'package:flutter_clean_architecture/features/feed/domain/repositories/feeds_repository.dart';
 import 'package:flutter_clean_architecture/features/feed/presentation/bloc/feeds_bloc.dart';
 import 'package:flutter_clean_architecture/features/feed/presentation/bloc/feeds_state.dart';
 import 'package:flutter_clean_architecture/features/feed/presentation/widgets/feed_list.dart';
 import 'package:flutter_clean_architecture/injection_container.dart';
-import 'package:http/http.dart' as http;
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class FeedsScreen extends StatefulWidget {
   @override
@@ -59,4 +49,3 @@ class _FeedsScreenState extends State<FeedsScreen> {
     super.dispose();
   }
 }
-

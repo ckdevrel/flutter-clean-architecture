@@ -8,9 +8,7 @@ class FeedImageView extends StatelessWidget {
     return SizedBox(
         width: double.infinity,
         height: 200,
-        child: Image.network(
-            url,
-            fit: BoxFit.cover));
+        child: Image.network(url, fit: BoxFit.cover));
   }
 
   FeedImageView({this.url});
